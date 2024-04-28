@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://datahuo.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://example.com/ru/categories/"
+                href="https://datahuo.github.io/ru/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/categories/"
+                href="https://datahuo.github.io/zh/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/categories/"
+                href="https://datahuo.github.io/categories/"
                 />
   </url><url>
-    <loc>https://example.com/</loc>
+    <loc>https://datahuo.github.io/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://example.com/ru/"
+                href="https://datahuo.github.io/ru/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/"
+                href="https://datahuo.github.io/zh/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/"
+                href="https://datahuo.github.io/"
                 />
   </url><url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://datahuo.github.io/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="ru"
-                href="https://example.com/ru/tags/"
+                href="https://datahuo.github.io/ru/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/tags/"
+                href="https://datahuo.github.io/zh/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/tags/"
+                href="https://datahuo.github.io/tags/"
                 />
   </url>
 </urlset>
