@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-  xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <url>
-    <loc>/</loc>
-  </url><url>
-    <loc>/about/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>/archives/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>/golang-gin-%E5%AE%9E%E6%88%98/</loc>
-    <priority>0</priority>
-  </url><url>
-    <loc>/tools/%E4%B8%80%E4%B8%AAssh%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</loc>
-  </url><url>
-    <loc>/categories/</loc>
-  </url><url>
-    <loc>/tags/</loc>
-  </url><url>
-    <loc>/tools/</loc>
-  </url>
-</urlset>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <sitemap>
+    <loc>https://example.com/en/sitemap.xml</loc>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://example.com/ru/sitemap.xml</loc>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://example.com/zh/sitemap.xml</loc>
+    
+  </sitemap>
+  
+</sitemapindex>
