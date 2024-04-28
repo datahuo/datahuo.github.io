@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="如何用 SSH 密钥在一台机器上管理多个 GitHub 账户 #    https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/  1. Generating the SSH keys #  Before generating an SSH key, we can check to see if we have any existing SSH keys: ls -al ~/.ssh This will list out all existing public and private key pairs, if any. If ~/.ssh/id_rsa is available, we can reuse it, or else we can first generate a key to the default ~/.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:title" content="" />
+<meta property="og:description" content="如何用 SSH 密钥在一台机器上管理多个 GitHub 账户 #    https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/  1. Generating the SSH keys #  Before generating an SSH key, we can check to see if we have any existing SSH keys: ls -al ~/.ssh This will list out all existing public and private key pairs, if any. If ~/.ssh/id_rsa is available, we can reuse it, or else we can first generate a key to the default ~/." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://datahuo.github.io/zh/posts/tools/%E4%B8%80%E4%B8%AAssh%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/" /><meta property="article:section" content="posts" />
+
+
+
+<title>一个ssh配置多个github账户 | Hugo Book</title>
+<link rel="manifest" href="/manifest.json">
+<link rel="icon" href="/favicon.png" >
+<link rel="canonical" href="https://datahuo.github.io/zh/posts/tools/%E4%B8%80%E4%B8%AAssh%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/">
+<link rel="stylesheet" href="/book.min.309b7ed028807cdb68d8d61e26d609f48369c098dbf5e4d8c0dcf4cdf49feafc.css" integrity="sha256-MJt&#43;0CiAfNto2NYeJtYJ9INpwJjb9eTYwNz0zfSf6vw=" crossorigin="anonymous">
+  <script defer src="/flexsearch.min.js"></script>
+  <script defer src="/zh.search.min.a4f2bcf96885cb3bb9010b14e2c080586a4198292f79f20e7d525c309688d200.js" integrity="sha256-pPK8&#43;WiFyzu5AQsU4sCAWGpBmCkvefIOfVJcMJaI0gA=" crossorigin="anonymous"></script>
+
+  <script defer src="/sw.min.88f1afdaf4798d7d3520420dcfe201f928c3d371fdedfc3ae28cd9b6b79544f8.js" integrity="sha256-iPGv2vR5jX01IEINz&#43;IB&#43;SjD03H97fw64ozZtreVRPg=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/zh/"><span>Hugo Book</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="搜索" aria-label="搜索" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+  
+
+
+
+  
+    
+  
+
+
+
+<ul class="book-languages">
+  <li>
+    <input type="checkbox" id="languages" class="toggle" />
+    <label for="languages" class="flex justify-between">
+      <a role="button" class="flex align-center">
+        <img src="/svg/translate.svg" class="book-icon" alt="Languages" />
+        Chinese
+      </a>
+    </label>
+
+    <ul>
+      
+      <li>
+        <a href="https://datahuo.github.io/">
+          English
+        </a>
+      </li>
+      
+    </ul>
+  </li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="https://github.com/alex-shpak/hugo-book"  target="_blank" rel="noopener">
+        Github
+      </a>
+  </li>
+  
+  <li>
+    <a href="https://themes.gohugo.io/themes/hugo-book/"  target="_blank" rel="noopener">
+        Hugo Themes
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var a=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>一个ssh配置多个github账户</strong>
+
+  <label for="toc-control">
+    
+    <img src="/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#如何用-ssh-密钥在一台机器上管理多个-github-账户">如何用 SSH 密钥在一台机器上管理多个 GitHub 账户</a>
+      <ul>
+        <li><a href="#1-generating-the-ssh-keys">1. Generating the SSH keys</a></li>
+        <li><a href="#2-adding-the-new-ssh-key-to-the-corresponding-github-account">2. Adding the new SSH key to the corresponding GitHub account</a></li>
+        <li><a href="#3--registering-the-new-ssh-keys-with-the-ssh-agent">3 . Registering the new SSH Keys with the ssh-agent</a></li>
+        <li><a href="#4-creating-the-ssh-config-file">4. Creating the SSH config File</a>
+          <ul>
+            <li><a href="#5-one-active-ssh-key-in-the-ssh-agent-at-a-time">5. One active SSH key in the ssh-agent at a time</a></li>
+            <li><a href="#setting-the-git-remote-url-for-the-local-repositories">Setting the git remote Url for the local repositories</a></li>
+            <li><a href="#6-while-cloning-repositories">6. While Cloning Repositories</a></li>
+            <li><a href="#7-for-locally-existing-repositories">7. For Locally Existing Repositories</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+<article class="markdown book-post">
+  <h1>
+    <a href="/zh/posts/tools/%E4%B8%80%E4%B8%AAssh%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/">一个ssh配置多个github账户</a>
+  </h1>
+  
+
+
+  
+
+  
+
+
+
+<h1 id="如何用-ssh-密钥在一台机器上管理多个-github-账户">
+  如何用 SSH 密钥在一台机器上管理多个 GitHub 账户
+  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e7%94%a8-ssh-%e5%af%86%e9%92%a5%e5%9c%a8%e4%b8%80%e5%8f%b0%e6%9c%ba%e5%99%a8%e4%b8%8a%e7%ae%a1%e7%90%86%e5%a4%9a%e4%b8%aa-github-%e8%b4%a6%e6%88%b7">#</a>
+</h1>
+<ul>
+<li>
+  <a href="https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/">https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/</a></li>
+</ul>
+<h2 id="1-generating-the-ssh-keys">
+  1. Generating the SSH keys
+  <a class="anchor" href="#1-generating-the-ssh-keys">#</a>
+</h2>
+<p>Before generating an SSH key, we can check to see if we have any existing SSH keys: ls -al ~/.ssh This will list out all existing public and private key pairs, if any.
+If ~/.ssh/id_rsa is available, we can reuse it, or else we can first generate a key to the default ~/.ssh/id_rsa by running:</p>
+<pre><code>ssh-keygen -t rsa
+</code></pre><p>When asked for the location to save the keys, accept the default location by pressing enter. A private key and public key ~/.ssh/id_rsa.pub will be created at the default ssh location ~/.ssh/.</p>
+<p>Let’s use this default key pair for our personal account.</p>
+<p>For the work accounts, we will create different SSH keys. The below code will generate the SSH keys, and saves the public key with the tag “email@work_mail.com” to ~/.ssh/id_rsa_work_user1.pub</p>
+<pre><code>$ ssh-keygen -t rsa -C &quot;email@work_mail.com&quot; -f &quot;id_rsa_work_user1&quot;
+</code></pre><p>We have two different keys created:</p>
+<pre><code>~/.ssh/id_rsa
+~/.ssh/id_rsa_work_user1
+</code></pre><h2 id="2-adding-the-new-ssh-key-to-the-corresponding-github-account">
+  2. Adding the new SSH key to the corresponding GitHub account
+  <a class="anchor" href="#2-adding-the-new-ssh-key-to-the-corresponding-github-account">#</a>
+</h2>
+<p>We already have the SSH public keys ready, and we will ask our GitHub accounts to trust the keys we have created. This is to get rid of the need for typing in the username and password every time you make a Git push.</p>
+<p>Copy the public key pbcopy &lt; ~/.ssh/id_rsa.pub and then log in to your personal GitHub account:</p>
+<p>Go to Settings
+Select SSH and GPG keys from the menu to the left.
+Click on New SSH key, provide a suitable title, and paste the key in the box below
+Click Add key — and you’re done!
+For the work accounts, use the corresponding public keys (pbcopy &lt; ~/.ssh/id_rsa_work_user1.pub) and repeat the above steps in your GitHub work accounts.</p>
+<h2 id="3--registering-the-new-ssh-keys-with-the-ssh-agent">
+  3 . Registering the new SSH Keys with the ssh-agent
+  <a class="anchor" href="#3--registering-the-new-ssh-keys-with-the-ssh-agent">#</a>
+</h2>
+<p>To use the keys, we have to register them with the ssh-agent on our machine. Ensure ssh-agent is running using the command eval &ldquo;$(ssh-agent -s)&rdquo;.</p>
+<p>Add the keys to the ssh-agent like so:</p>
+<pre><code>ssh-add ~/.ssh/id_rsa
+ssh-add ~/.ssh/id_rsa_work_user1
+</code></pre><p>Make the ssh-agent use the respective SSH keys for the different SSH Hosts.</p>
+<p>This is the crucial part, and we have two different approaches:</p>
+<p>Using the SSH configuration file (Step 4), and having only one active SSH key in the ssh-agent at a time (Step 5).</p>
+<h2 id="4-creating-the-ssh-config-file">
+  4. Creating the SSH config File
+  <a class="anchor" href="#4-creating-the-ssh-config-file">#</a>
+</h2>
+<p>Here we are actually adding the SSH configuration rules for different hosts, stating which identity file to use for which domain.</p>
+<p>The SSH config file will be available at ~/.ssh/config. Edit it if it exists, or else we can just create it.</p>
+<pre><code>$ cd ~/.ssh/
+$ touch config           // Creates the file if not exists
+$ code config            // Opens the file in VS code, use any editor
+</code></pre><p>Make configuration entries for the relevant GitHub accounts similar to the one below in your <strong>~/.ssh/config</strong> file:</p>
+<pre><code># Personal account, - the default config
+Host github.com
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa
+   
+# Work account-1
+Host github.com-work_user1    
+   HostName github.com
+   User git
+   IdentityFile ~/.ssh/id_rsa_work_user1
+</code></pre><p>“work_user1” is the GitHub user id for the work account.</p>
+<p>“github.com-work_user1” is a notation used to differentiate the multiple Git accounts. You can also use “work_user1.github.com” notation as well. Make sure you’re consistent with what hostname notation you use. This is relevant when you clone a repository or when you set the remote origin for a local repository</p>
+<p>The above configuration asks ssh-agent to:</p>
+<p>Use id_rsa as the key for any Git URL that uses @github.com
+Use the id_rsa_work_user1 key for any Git URL that uses @github.com-work_user1</p>
+<h3 id="5-one-active-ssh-key-in-the-ssh-agent-at-a-time">
+  5. One active SSH key in the ssh-agent at a time
+  <a class="anchor" href="#5-one-active-ssh-key-in-the-ssh-agent-at-a-time">#</a>
+</h3>
+<p>This approach doesn’t require the SSH config rules. Rather we manually ensure that the ssh-agent has only the relevant key attached at the time of any Git operation.</p>
+<p>ssh-add -l will list all the SSH keys attached to the ssh-agent. Remove all of them and add the one key you are about to use.</p>
+<p>If it’s to a personal Git account that you are about to push:</p>
+<pre><code>$ ssh-add -D            //removes all ssh entries from the ssh-agent
+$ ssh-add ~/.ssh/id_rsa                 // Adds the relevant ssh key
+</code></pre><p>The ssh-agent now has the key mapped with the personal GitHub account, and we can do a Git push to the personal repository.</p>
+<p>To push to your work GitHub account-1, change the SSH key mapped with the ssh-agent by removing the existing key and adding the SSH key mapped with the GitHub work account.</p>
+<pre><code>$ ssh-add -D
+$ ssh-add ~/.ssh/id_rsa_work_user1
+</code></pre><p>The ssh-agent at present has the key mapped with the work Github account, and you can do a Git push to the work repository. This requires a bit of manual effort, though.</p>
+<h3 id="setting-the-git-remote-url-for-the-local-repositories">
+  Setting the git remote Url for the local repositories
+  <a class="anchor" href="#setting-the-git-remote-url-for-the-local-repositories">#</a>
+</h3>
+<p>Once we have local Git repositories cloned /created, ensure the Git config user name and email is exactly what you want. GitHub identifies the author of any commit from the email id attached with the commit description.</p>
+<p>To list the config name and email in the local Git directory, do git config user.name and git config user.email. If it’s not found, update accordingly.</p>
+<pre><code>git config user.name &quot;User 1&quot;   // Updates git config user name
+git config user.email &quot;user1@workMail.com&quot;
+</code></pre><h3 id="6-while-cloning-repositories">
+  6. While Cloning Repositories
+  <a class="anchor" href="#6-while-cloning-repositories">#</a>
+</h3>
+<p>Note: step 7 will help, if we have the repository already available on local.</p>
+<p>Now that the configurations are in place, we can go ahead and clone the corresponding repositories. On cloning, make a note that we use the host names that we used in the SSH config.</p>
+<p>Repositories can be cloned using the clone command Git provides:</p>
+<pre><code>git clone git@github.com:personal_account_name/repo_name.git
+</code></pre><p>The work repository will require a change to be made with this command:</p>
+<pre><code>git clone git@github.com-work_user1:work_user1/repo_name.git
+</code></pre><p>This change is made depending on the host name defined in the SSH config. The string between @ and : should match what we have given in the SSH config file.</p>
+<h3 id="7-for-locally-existing-repositories">
+  7. For Locally Existing Repositories
+  <a class="anchor" href="#7-for-locally-existing-repositories">#</a>
+</h3>
+<p>If we have the repository already cloned:</p>
+<p>List the Git remote of the repository, git remote -v</p>
+<p>Check whether the URL matches our GitHub host to be used, or else update the remote origin URL.</p>
+<pre><code>git remote set-url origin git@github.com-worker_user1:worker_user1/repo_name.git
+
+</code></pre><p>Ensure the string between @ and : matches the Host we have given in the SSH config.</p>
+<p>If you are creating a new repository on local:</p>
+<p>Initialize Git in the project folder <strong>git init</strong>.</p>
+<p>Create the new repository in the GitHub account and then add it as the Git remote to the local repository.</p>
+<pre><code>git remote add origin git@github.com-work_user1:work_user1/repo_name.git 
+</code></pre><p>Ensure the string between @ and : matches the Host we have given in the SSH config.
+Push the initial commit to the GitHub repository:</p>
+<pre><code>git add .
+git commit -m &quot;Initial commit&quot;
+git push -u origin master
+</code></pre><p>We are done!</p>
+<p>Adding or updating the Git remote of the local Git directory with the proper host will take care of selecting the correct SSH key to verify our identity with GitHub. With all the above in place, our git operations should work seamlessly.</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+  <div>
+    <a class="flex align-center" href="https://github.com/alex-shpak/hugo-book/edit/main/exampleSite/content.zh/posts/tools/%e4%b8%80%e4%b8%aassh%e9%85%8d%e7%bd%ae%e5%a4%9a%e4%b8%aagithub%e8%b4%a6%e6%88%b7.md" target="_blank" rel="noopener">
+      <img src="/svg/edit.svg" class="book-icon" alt="" />
+      <span>编辑本页</span>
+    </a>
+  </div>
+
+
+</div>
+
+
+
+  <script>(function(){function a(c){const a=window.getSelection(),b=document.createRange();b.selectNodeContents(c),a.removeAllRanges(),a.addRange(b)}document.querySelectorAll("pre code").forEach(b=>{b.addEventListener("click",function(c){if(window.getSelection().toString())return;a(b.parentElement),navigator.clipboard&&navigator.clipboard.writeText(b.parentElement.textContent)})})})()</script>
+
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#如何用-ssh-密钥在一台机器上管理多个-github-账户">如何用 SSH 密钥在一台机器上管理多个 GitHub 账户</a>
+      <ul>
+        <li><a href="#1-generating-the-ssh-keys">1. Generating the SSH keys</a></li>
+        <li><a href="#2-adding-the-new-ssh-key-to-the-corresponding-github-account">2. Adding the new SSH key to the corresponding GitHub account</a></li>
+        <li><a href="#3--registering-the-new-ssh-keys-with-the-ssh-agent">3 . Registering the new SSH Keys with the ssh-agent</a></li>
+        <li><a href="#4-creating-the-ssh-config-file">4. Creating the SSH config File</a>
+          <ul>
+            <li><a href="#5-one-active-ssh-key-in-the-ssh-agent-at-a-time">5. One active SSH key in the ssh-agent at a time</a></li>
+            <li><a href="#setting-the-git-remote-url-for-the-local-repositories">Setting the git remote Url for the local repositories</a></li>
+            <li><a href="#6-while-cloning-repositories">6. While Cloning Repositories</a></li>
+            <li><a href="#7-for-locally-existing-repositories">7. For Locally Existing Repositories</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

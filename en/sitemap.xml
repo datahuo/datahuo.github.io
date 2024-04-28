@@ -5,11 +5,6 @@
     <loc>https://datahuo.github.io/categories/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="ru"
-                href="https://datahuo.github.io/ru/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh"
                 href="https://datahuo.github.io/zh/categories/"
                 />
@@ -22,11 +17,6 @@
     <loc>https://datahuo.github.io/</loc>
     <xhtml:link
                 rel="alternate"
-                hreflang="ru"
-                href="https://datahuo.github.io/ru/"
-                />
-    <xhtml:link
-                rel="alternate"
                 hreflang="zh"
                 href="https://datahuo.github.io/zh/"
                 />
@@ -37,11 +27,6 @@
                 />
   </url><url>
     <loc>https://datahuo.github.io/tags/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="ru"
-                href="https://datahuo.github.io/ru/tags/"
-                />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"

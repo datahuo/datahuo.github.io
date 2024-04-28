@@ -2,17 +2,12 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://datahuo.github.io/en/sitemap.xml</loc>
-    
-  </sitemap>
-  
-  <sitemap>
-    <loc>https://datahuo.github.io/ru/sitemap.xml</loc>
-    
-  </sitemap>
-  
-  <sitemap>
     <loc>https://datahuo.github.io/zh/sitemap.xml</loc>
+    
+  </sitemap>
+  
+  <sitemap>
+    <loc>https://datahuo.github.io/en/sitemap.xml</loc>
     
   </sitemap>
   
