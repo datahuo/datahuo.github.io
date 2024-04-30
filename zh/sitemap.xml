@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://datahuo.github.io/zh/docs/golang-GIN-%E5%AE%9E%E6%88%98/</loc>
+  </url><url>
+    <loc>https://datahuo.github.io/zh/docs/%E4%B8%80%E4%B8%AAssh%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</loc>
+  </url><url>
     <loc>https://datahuo.github.io/zh/posts/ssh_%E5%A4%9A%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/</loc>
   </url><url>
     <loc>https://datahuo.github.io/zh/categories/</loc>
@@ -14,6 +18,18 @@
                 rel="alternate"
                 hreflang="zh"
                 href="https://datahuo.github.io/zh/categories/"
+                />
+  </url><url>
+    <loc>https://datahuo.github.io/zh/docs/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://datahuo.github.io/en/docs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://datahuo.github.io/zh/docs/"
                 />
   </url><url>
     <loc>https://datahuo.github.io/zh/posts/</loc>

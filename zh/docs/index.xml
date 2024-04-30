@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>介绍 on Hugo Book</title>
-    <link>https://datahuo.github.io/zh/</link>
-    <description>Recent content in 介绍 on Hugo Book</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://datahuo.github.io/zh/index.xml" rel="self" type="application/rss+xml" />
+    <title>Docs on Hugo Book</title>
+    <link>https://datahuo.github.io/zh/docs/</link>
+    <description>Recent content in Docs on Hugo Book</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://datahuo.github.io/zh/docs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title></title>
       <link>https://datahuo.github.io/zh/docs/golang-GIN-%E5%AE%9E%E6%88%98/</link>
@@ -20,15 +20,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://datahuo.github.io/zh/docs/%E4%B8%80%E4%B8%AAssh%E9%85%8D%E7%BD%AE%E5%A4%9A%E4%B8%AAgithub%E8%B4%A6%E6%88%B7/</guid>
-      <description>如何用 SSH 密钥在一台机器上管理多个 GitHub 账户 #    https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/  1. Generating the SSH keys #  Before generating an SSH key, we can check to see if we have any existing SSH keys: ls -al ~/.ssh This will list out all existing public and private key pairs, if any. If ~/.ssh/id_rsa is available, we can reuse it, or else we can first generate a key to the default ~/.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://datahuo.github.io/zh/posts/ssh_%E5%A4%9A%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://datahuo.github.io/zh/posts/ssh_%E5%A4%9A%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/</guid>
       <description>如何用 SSH 密钥在一台机器上管理多个 GitHub 账户 #    https://www.freecodecamp.org/news/manage-multiple-github-accounts-the-ssh-way-2dadc30ccaca/  1. Generating the SSH keys #  Before generating an SSH key, we can check to see if we have any existing SSH keys: ls -al ~/.ssh This will list out all existing public and private key pairs, if any. If ~/.ssh/id_rsa is available, we can reuse it, or else we can first generate a key to the default ~/.</description>
     </item>
     
