@@ -2,40 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://datahuo.github.io/zh/categories/</loc>
+    <loc>https://example.com/zh/posts/ssh_%E5%A4%9A%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/</loc>
+  </url><url>
+    <loc>https://example.com/zh/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://datahuo.github.io/categories/"
+                href="https://example.com/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://datahuo.github.io/zh/categories/"
+                href="https://example.com/zh/categories/"
                 />
   </url><url>
-    <loc>https://datahuo.github.io/zh/</loc>
+    <loc>https://example.com/zh/posts/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://datahuo.github.io/"
+                href="https://example.com/en/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://datahuo.github.io/zh/"
+                href="https://example.com/zh/posts/"
                 />
   </url><url>
-    <loc>https://datahuo.github.io/zh/tags/</loc>
+    <loc>https://example.com/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://datahuo.github.io/tags/"
+                href="https://example.com/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://datahuo.github.io/zh/tags/"
+                href="https://example.com/zh/tags/"
+                />
+  </url><url>
+    <loc>https://example.com/zh/</loc>
+    <lastmod>2024-04-30T08:29:57+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://example.com/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh"
+                href="https://example.com/zh/"
                 />
   </url>
 </urlset>

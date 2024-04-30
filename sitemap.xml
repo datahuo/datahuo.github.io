@@ -2,12 +2,14 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <sitemap>
-    <loc>https://datahuo.github.io/zh/sitemap.xml</loc>
+    <loc>https://example.com/zh/sitemap.xml</loc>
     
   </sitemap>
   
   <sitemap>
-    <loc>https://datahuo.github.io/en/sitemap.xml</loc>
+    <loc>https://example.com/en/sitemap.xml</loc>
+    
+      <lastmod>2024-04-30T08:29:57+08:00</lastmod>
     
   </sitemap>
   
