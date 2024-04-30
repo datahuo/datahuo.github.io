@@ -2,55 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://example.com/zh/posts/ssh_%E5%A4%9A%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/</loc>
+    <loc>https://datahuo.github.io/zh/posts/ssh_%E5%A4%9A%E8%B4%A6%E6%88%B7%E7%AE%A1%E7%90%86/</loc>
   </url><url>
-    <loc>https://example.com/zh/categories/</loc>
+    <loc>https://datahuo.github.io/zh/categories/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/categories/"
+                href="https://datahuo.github.io/en/categories/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/categories/"
+                href="https://datahuo.github.io/zh/categories/"
                 />
   </url><url>
-    <loc>https://example.com/zh/posts/</loc>
+    <loc>https://datahuo.github.io/zh/posts/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/posts/"
+                href="https://datahuo.github.io/en/posts/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/posts/"
+                href="https://datahuo.github.io/zh/posts/"
                 />
   </url><url>
-    <loc>https://example.com/zh/tags/</loc>
+    <loc>https://datahuo.github.io/zh/tags/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/tags/"
+                href="https://datahuo.github.io/en/tags/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/tags/"
+                href="https://datahuo.github.io/zh/tags/"
                 />
   </url><url>
-    <loc>https://example.com/zh/</loc>
+    <loc>https://datahuo.github.io/zh/</loc>
     <lastmod>2024-04-30T08:29:57+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://example.com/en/"
+                href="https://datahuo.github.io/en/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="zh"
-                href="https://example.com/zh/"
+                href="https://datahuo.github.io/zh/"
                 />
   </url>
 </urlset>
